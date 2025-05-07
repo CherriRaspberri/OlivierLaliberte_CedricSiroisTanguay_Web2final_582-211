@@ -10,6 +10,7 @@
     --main-color-accents: #AF7B2F;
     --main-color-highlights: #EAE1CE;
 }
+
 * {
     /*Typos : */
     font-family: "League Gothic", sans-serif;
@@ -22,6 +23,86 @@
 # SECTION : Styles generaux
     - 
 ----------*/
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.logo {
+    max-width: 50px;
+}
+
+a {
+    text-decoration: none;
+}
+
+span {
+    transform: translateY(-2px);
+}
+
+button {
+    width: 5vh;
+    height: 5vh;
+    box-sizing: border-box;
+
+    margin: 0 5px;
+
+    background-color: var(--main-color);
+
+    align-items: center;
+
+    border: 0;
+    border-radius: 10px;
+
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+
+    position: relative;
+}
+
+button:after {
+    content: "";
+
+    width: 5vh;
+    height: 5vh;
+
+    background-color: #32220a;
+
+    border-radius: 10px;
+
+    display: block;
+
+    position: absolute;
+    top: -2px;
+    left: 0;
+
+    transform: translateX(8px) translateY(8px);
+    transition: transform .2s ease-out;
+
+    z-index: -1;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button:hover:after {
+    transform: translateX(0) translateY(2px);
+}
+
+.left-container {
+    display: flex;
+    align-items: center;
+}
+
+#section-recherche-profil,
+#section-burger-menu,
+#boutons-reseaux-sociaux {
+    transform: translateX(-15px);
+}
 
 /*----------
 # SECTION : Header
@@ -29,7 +110,47 @@
 ----------*/
 header {
     width: 100%;
-    height: 10%;
+    height: 8%;
+
+    padding-top: 5px;
+
+    background-color: var(--main-color-shadows);
+
+    border-radius: 10px;
+
+    color: white;
+    font-size: 32px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 1;
+}
+
+#section-boutons {
+    margin: 0 30px;
+}
+
+#section-recherche-profil {
+    display: flex;
+}
+
+#barre-recherche {
+    width: 35vh;
+    height: 5vh;
+
+    margin-right: 15px;
+
+    border-radius: 10px;
+
+    background-color: white;
+
+    display: flex;
+    align-items: center;
+}
+#loupe {
+    max-width: 4vh;
 }
 
 /*----------
@@ -41,10 +162,32 @@ header {
 # SECTION : Footer
     -
 ----------*/
+footer {
+    width: 100%;
+    height: 8%;
+    background-color: var(--main-color-shadows);
+    border-radius: 10px;
+    padding-top: 5px;
 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
+#signature {
+    color: white;
+}
+
+/*Mobile*/
 @media screen and (max-width: 600px) {
     .desktop {
+        display: none;
+    }
+}
+
+/*Desktop*/
+@media screen and (min-width: 600px) {
+    .mobile {
         display: none;
     }
 }
