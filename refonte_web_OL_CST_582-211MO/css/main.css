@@ -23,19 +23,14 @@
 # SECTION : Styles generaux
     - 
 ----------*/
-body {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
 .logo {
     max-width: 50px;
 }
 
 a {
     text-decoration: none;
+    display: flex;
+    align-items: center;
 }
 
 span {
@@ -43,8 +38,8 @@ span {
 }
 
 button {
-    width: 5vh;
-    height: 5vh;
+    width: 45px;
+    height: 45px;
     box-sizing: border-box;
 
     margin: 0 5px;
@@ -66,8 +61,8 @@ button {
 button:after {
     content: "";
 
-    width: 5vh;
-    height: 5vh;
+    width: 45px;
+    height: 45px;
 
     background-color: #32220a;
 
@@ -129,16 +124,24 @@ header {
 }
 
 #section-boutons {
+    width: 200px;
+
     margin: 0 30px;
+    
+    display: flex;
+    justify-content: space-around;
+
+    transform: translateY(-5px);
 }
 
 #section-recherche-profil {
     display: flex;
+    align-items: center;
 }
 
 #barre-recherche {
     width: 35vh;
-    height: 5vh;
+    height: 40px;
 
     margin-right: 15px;
 
@@ -178,16 +181,20 @@ footer {
     color: white;
 }
 
+#boutons-reseaux-sociaux {
+    display: flex;
+}
+
 /*Mobile*/
 @media screen and (max-width: 600px) {
     .desktop {
-        display: none;
+        display: none !important;
     }
 }
 
 /*Desktop*/
 @media screen and (min-width: 600px) {
     .mobile {
-        display: none;
+        display: none !important;
     }
 }
