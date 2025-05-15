@@ -10,6 +10,11 @@
     --main-color-shadows-deep: #2d421f;
     --main-color-accents: #AF7B2F;
     --main-color-highlights: #EAE1CE;
+
+
+    --facebook-hover: #7ac0fd;
+    --instagram-hover: #ffaaff;
+    --youtube-hover: #ff837d;
 }
 
 * {
@@ -231,6 +236,19 @@ footer {
 
 #boutons-reseaux-sociaux {
     display: flex;
+}
+
+#facebook, #instagram, #youtube {
+    background: var(--main-color);
+}
+#facebook:hover {
+    background: var(--facebook-hover);
+}
+#instagram:hover {
+    background: var(--instagram-hover);
+}
+#youtube:hover {
+    background: var(--youtube-hover);
 }
 
 /*----------

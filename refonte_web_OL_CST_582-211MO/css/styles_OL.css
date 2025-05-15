@@ -28,10 +28,58 @@
     -
 ----------*/
 
+/*#region Containers*/
 /*----------
-# SECTION : Containers
-    -
+    - Container pour les sections top et bottom    
+    - Articles
 ----------*/
+
+.top-container {
+
+}
+
+#bottom-container {
+    width: 1000px;
+    height: 1000px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.article-card {
+    width: 30em;
+    height: 15em;
+
+    background-color: var(--main-color-shadows);
+
+    border-radius: 20px;
+    
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+}
+
+.article-inner-card {
+    background-color: var(--main-color);
+
+    transform: translateY(65px);
+
+    position: relative;
+
+    transition: 0.5s ease-in-out;
+}
+.article-card:hover {
+    cursor: pointer;
+}
+.article-card:hover .article-inner-card {
+    transform: translateY(0px);
+}
+
+/*#endregion*/
 
 /*----------
 # SECTION : Footer

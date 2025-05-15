@@ -7,9 +7,12 @@
 
     <!--Imports-->
     <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/styles_CST.css">
-    
-    <title>EDHREC - connection</title>
+    <link rel="stylesheet" href="./css/styles_OL.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Gothic&display=swap" rel="stylesheet">
+
+    <title>EDHREC - accueil</title>
 </head>
 <body>
     <!--SECTION HEADER-->
@@ -29,41 +32,77 @@
     -->
     <header>
         <div class="left-container">
-            <img src="./assets/logo.png" class="logo">
+            <!--Logo-->
+            <a href="./index.html">
+                <img src="./assets/logo.png" class="logo">
+            </a>
             <span>EDHREC</span>
             
             <div id="section-boutons" class="desktop">
                 <!--Vers la page Articles-->
-                <a href="#">
-                    <button></button>
+                <a href="./articles.html">
+                    <button id="articles-button">
+                        <img src="./assets/articles.svg">
+                    </button>
                 </a>
                 <!--Vers la page commander-->
-                <a href="#">
-                    <button></button>
+                <a href="./commander.html">
+                    <button id="commander-button">
+                        <img src="./assets/commander.svg">
+                    </button>
                 </a>
                 <!--Vers rien, vu qu'on ne fait pas la page cartes-->
                 <a href="#">
-                    <button></button>
+                    <button id="cards-button">
+                        <img src="./assets/cards.svg">
+                    </button>
                 </a>
             </div>
         </div>
 
         <div id="section-recherche-profil" class="desktop">
-            <div id="barre-recherche" class="desktop">
-                <svg id="loupe" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path  d="M14.9536 14.9458L21 21M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+            <!--Barre de recherche-->
+            <div id="barre-recherche">
+                
             </div>
             <!--Vers la page Connetion profil-->
-            <a href="#" >
-                <button id="profil"></button>
+            <a href="./connection.html" >
+                <button id="profil-button">
+                    <img src="./assets/profile.svg">
+                </button>
             </a>
         </div>
 
+        <!--Burger menu (seulement visible en mobile)-->
         <div id="section-burger-menu" class="mobile">
-            <button id="burger-menu"></button>
+            <button id="burger-menu">
+                <img src="./assets/burger-menu.svg">
+            </button>
         </div>
     </header>
 
-
+    <!--SECTION MAIN-->
+    <!--
+        Dans le main :
+        (Mobile)
+        - Section commander du jour
+        - Liste cartes populaires
+        - Liste articles récents
+        (Desktop)
+        - Message bienvenue
+        - Section commander du jour
+        - Liste cartes populaires
+        - Liste articles récents
+    -->
+    <main>
+        <div id="top-container">
+            <!--Section welcome message-->
+            <div id="welcome-message">
+                <h3>Page connexion</h3>
+                <p>Lorem ipsum color di amet.</p>
+            </div>
+        </div>
+    </main>
 
     <!--SECTION FOOTER-->
     <!-- 
@@ -86,15 +125,23 @@
         
         <div id="boutons-reseaux-sociaux">
             <a href="#">
-                <button></button>
+                <button id="facebook">
+                    <img src="./assets/facebook.svg">
+                </button>
             </a>
             <a href="#">
-                <button></button>
+                <button id="instagram">
+                    <img src="./assets/instagram.svg">
+                </button>
             </a>
             <a href="#">
-                <button></button>
+                <button id="youtube">
+                    <img src="./assets/youtube.svg">
+                </button>
             </a>
         </div>
     </footer>
 </body>
+
+
 </html>
