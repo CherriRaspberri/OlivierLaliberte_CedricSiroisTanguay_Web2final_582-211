@@ -7,6 +7,7 @@
     /*Couleurs principales : */
     --main-color: #92A661;
     --main-color-shadows: #3E6329;
+    --main-color-shadows-deep: #2d421f;
     --main-color-accents: #AF7B2F;
     --main-color-highlights: #EAE1CE;
 }
@@ -19,24 +20,39 @@
     font-style: normal;
 }
 
+body {
+    background: var(--main-color-highlights);
+}
+
 /*----------
 # SECTION : Styles generaux
-    - 
+    - Tout ce qui touche à toutes les pages
+        - Liens
+        - Boutons
+        - Logo
 ----------*/
+/*Logo : size cap*/
 .logo {
     max-width: 50px;
 }
 
+/*Liens personalisés : aligne le bouton à l'intérieur du lien*/
 a {
     text-decoration: none;
     display: flex;
     align-items: center;
 }
 
+/*span utilisé pour le titre dans le header; Centre avec le logo*/
 span {
     transform: translateY(-2px);
 }
 
+/*Bouton stylisé avec animation :
+    - Fond vert (main color)
+    - Ombre décalée
+    - Animation du mouvement d'ombre
+*/
 button {
     width: 45px;
     height: 45px;
@@ -56,15 +72,20 @@ button {
     text-decoration: none;
 
     position: relative;
-}
+    transition: .2s ease-out;
 
-button:after {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*Ombre du bouton créé avec ::after*/
+button::after {
     content: "";
 
     width: 45px;
     height: 45px;
 
-    background-color: #32220a;
+    background-color: var(--main-color-shadows-deep);
 
     border-radius: 10px;
 
@@ -79,13 +100,18 @@ button:after {
 
     z-index: -1;
 }
-
+/*Change de curseur*/
 button:hover {
     cursor: pointer;
+    background: var(--main-color-highlights);
 }
-
-button:hover:after {
+/*Animation*/
+button:hover::after {
     transform: translateX(0) translateY(2px);
+}
+/*L'images placée dans le bouton prendra 100% de l'espace.*/
+button img {
+    width: 100%;
 }
 
 .left-container {
@@ -93,21 +119,22 @@ button:hover:after {
     align-items: center;
 }
 
+/*Centre les éléments mentionnés*/
 #section-recherche-profil,
 #section-burger-menu,
 #boutons-reseaux-sociaux {
     transform: translateX(-15px);
 }
 
+/*#region HEADER*/
 /*----------
-# SECTION : Header
-    - 
+    - Différents containers :
+        - Boutons
+        - Barre de recherche
 ----------*/
 header {
     width: 100%;
-    height: 8%;
-
-    padding-top: 5px;
+    height: 2.5em;
 
     background-color: var(--main-color-shadows);
 
@@ -122,7 +149,7 @@ header {
 
     z-index: 1;
 }
-
+/**/
 #section-boutons {
     width: 200px;
 
@@ -134,32 +161,53 @@ header {
     transform: translateY(-5px);
 }
 
+/*Resize l'image du bouton profil avec une plus petite taille*/
+#profil-button img {
+    width: 90%;
+}
+
 #section-recherche-profil {
     display: flex;
     align-items: center;
 }
+#section-recherche-profil a {
+    transform: translateY(-5px);
+}
 
 #barre-recherche {
-    width: 35vh;
-    height: 40px;
+    width: 20rem;
+    height: 2.7rem;
 
-    margin-right: 15px;
-
+    background: var(--main-color-highlights);
     border-radius: 10px;
 
-    background-color: white;
-
-    display: flex;
-    align-items: center;
+    position: relative;
+    transform: translateY(-5px);
 }
+
+#recherche-input {
+    
+}
+
+#recherche-submit {
+
+}
+
+
+
 #loupe {
     max-width: 4vh;
 }
+/*#endregion*/
 
 /*----------
-# SECTION : Containers
+# SECTION : Main
     -
 ----------*/
+
+
+
+
 
 /*----------
 # SECTION : Footer
@@ -184,6 +232,11 @@ footer {
 #boutons-reseaux-sociaux {
     display: flex;
 }
+
+/*----------
+#SECTION : MEDIAS
+    -
+----------*/
 
 /*Mobile*/
 @media screen and (max-width: 600px) {
