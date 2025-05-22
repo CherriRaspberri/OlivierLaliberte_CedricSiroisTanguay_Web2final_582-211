@@ -66,7 +66,7 @@
 .article-inner-card {
     background-color: var(--main-color);
 
-    transform: translateY(65px);
+    transform: translateY(50px);
 
     position: relative;
 
@@ -77,6 +77,36 @@
 }
 .article-card:hover .article-inner-card {
     transform: translateY(0px);
+}
+
+.article-inner-card h2 {
+    margin-left: 20px;
+    transform: translateY(-5px);
+}
+
+.article-inner-card p {
+    margin-left: 20px;
+}
+
+.article-profile-container {
+    position: absolute;
+    
+    width: 70px;
+    height: 70px;
+
+    background-color: var(--main-color-highlights);
+
+    border: 4px solid var(--main-color-highlights);
+    border-radius: 50px;
+
+    top: 0;
+    right: 20px;
+
+    overflow: hidden;
+
+    transform: translateY(-30px);
+
+    display: flex;
 }
 
 /*#endregion*/
