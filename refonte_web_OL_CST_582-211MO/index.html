@@ -1,17 +1,6 @@
-<!--
-TO DO :
-    - Top zone :
-        - lil speech
-        - Commander of the day
-
-    - Bottom zone : 
-        - Zone liens :
-            - Top 10 links
-
--->
-
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,6 +15,7 @@ TO DO :
 
     <title>EDHREC - accueil</title>
 </head>
+
 <body>
     <!--SECTION HEADER-->
     <!--
@@ -47,7 +37,7 @@ TO DO :
             <!--Logo-->
             <img src="./assets/imgs/logo.png" class="logo">
             <span>EDHREC</span>
-            
+
             <div id="section-boutons" class="desktop">
                 <!--Vers la page Articles-->
                 <a href="./articles.html">
@@ -61,8 +51,8 @@ TO DO :
                         <img src="./assets/svgs/commander.svg">
                     </button>
                 </a>
-                <!--Vers rien, vu qu'on ne fait pas la page cartes-->
-                <a href="#">
+                <!--Vers la page de cartes de EDHREC-->
+                <a href="https://edhrec.com/top">
                     <button id="cards-button">
                         <img src="./assets/svgs/cards.svg">
                     </button>
@@ -73,10 +63,11 @@ TO DO :
         <div id="section-recherche-profil" class="desktop">
             <!--Barre de recherche-->
             <div id="barre-recherche">
-                
+                <img src="./assets/svgs/search-bar.svg">
+                <input type="text" placeholder="Rechercher...">
             </div>
             <!--Vers la page Connetion profil-->
-            <a href="./connection.html" >
+            <a href="./connection.html">
                 <button id="profil-button">
                     <img src="./assets/svgs/profile.svg">
                 </button>
@@ -85,11 +76,52 @@ TO DO :
 
         <!--Burger menu (seulement visible en mobile)-->
         <div id="section-burger-menu" class="mobile">
-            <button id="burger-menu">
+            <button id="burger-menu" onclick="openBurgerMenu()">
                 <img src="./assets/svgs/burger-menu.svg">
             </button>
         </div>
     </header>
+
+    <!--SECTION DROPDOWN MENU-->
+    <!--
+        Dans cette section :
+        - Liste de boutons
+        - Barre de recherche
+    -->
+    <div id="dropdown-burger-menu">
+        <a href="./articles.html">
+            <button>
+                <img src="./assets/svgs/articles.svg">
+
+                Articles
+            </button>
+        </a>
+        <a href="./commander.html">
+            <button>
+                <img src="./assets/svgs/commander.svg">
+
+                Commanders
+            </button>
+        </a>
+        <a href="https://edhrec.com/top">
+            <button>
+                <img src="./assets/svgs/cards.svg">
+
+                Cartes
+            </button>
+        </a>
+        <a href="./connection.html">
+            <button>
+                <img src="./assets/svgs/profile.svg">
+
+                Connection
+            </button>
+        </a>
+        <div id="dropdown-barre-recherche">
+            <img src="./assets/svgs/search-bar.svg">
+            <input type="text" placeholder="Rechercher...">
+        </div>
+    </div>
 
     <!--SECTION MAIN-->
     <!--
@@ -105,43 +137,152 @@ TO DO :
         - Liste articles récents
     -->
     <main>
+        <!--SECTION TOP CONTAINER-->
+        <!--
+            Dans ce container :
+            - Section texte de bienvenue
+            - Section commander du jour
+        -->
         <div id="top-container">
-            <!--Section welcome message-->
+            <!--
+                Section texte de bienvenue :
+                - Titre + message
+            -->
             <div id="welcome-message">
-                <h3>Bienvenue!</h3>
-                <p>Lorem ipsum color di amet.</p>
+                <h2>Bienvenue sur EDHREC!</h2>
+                <p>Découvrez l'essence du Commander avec EDHREC — votre ressource incontournable pour créer de meilleurs
+                    decks. Que vous construisiez votre tout premier deck Commander ou que vous peaufiniez votre
+                    centième, EDHREC collecte des données de milliers de decks pour vous montrer les cartes les plus
+                    populaires, les synergies et les stratégies autour de vos commandants préférés. Plongez,
+                    inspirez-vous et améliorez votre prochain build !</p>
             </div>
-
-            <!--Section commander du jour-->
+            <!--
+                Section commander du jour :
+                - Carte (image)
+                - Boutons liens externes vers les pages des sites respectifs
+            -->
             <div id="daily-commander">
-                <h3>Commander du jour : </h3>
+                <h2>Commander du jour : </h2>
                 <div id="daily-inner-container">
                     <!--Image du commander-->
+                    <img src="./assets/imgs/commander.jpg" id="daily-commander-img">
                     <!--Boutons liens externes-->
+                    <div id="daily-liens-container">
+                        <a href="#">
+                            <button class="external-link" id="moxfield">
+                                <img src="./assets/imgs/logo_moxfield.png">
+                            </button>
+                        </a>
+                        <a href="#">
+                            <button class="external-link" id="archidekt">
+                                <img src="./assets/imgs/logo_archidekt.png">
+                            </button>
+                        </a>
+                        <a href="#">
+                            <button class="external-link" id="scryfall">
+                                <img src="./assets/svgs/logo_scryfall.svg">
+                            </button>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div id="bottom-container">
+        <hr>
 
-            <!--Article card-->
-            <div class="article-card">
-                <!--Image de présentation-->
-                <img class="article-main-img" src="">
-                
-                <!--Espace de texte-->
-                <div class="article-inner-card">
-                    <!--Titre-->
-                    <h2>title</h2>
-                    <!--Description-->
-                    <p>Lorem ipsum dolor dit amet.</p>
-                    <!--Profile img-->
-                    <div class="article-profile-container">
-                        <img src="./assets/imgs/profile_01.png">
+        <!--SECTION BOTTOM CONTAINER-->
+        <!--
+            Dans ce container :
+            - Liste de cartes populaires
+            - Articles
+        -->
+        <div id="bottom-container">
+            <!--
+                Section liens populaires 
+                - Commanders + cartes
+            -->
+            <div id="popular-links-list">
+                <h1>Cartes populaires</h1>
+                <div id="pop-links-inner-container">
+                    <!--Commanders populaires-->
+                    <div id="pop-links-left-container">
+                        <h3>Commanders : </h3>
+                        <a href="https://edhrec.com/commanders/vivi-ornitier">Vivi Ornitier</a>
+                        <a href="https://edhrec.com/commanders/teval-the-balanced-scale">Teval, the Balanced Scale</a>
+                        <a href="https://edhrec.com/commanders/the-ur-dragon">The Ur-Dragon</a>
+                        <a href="https://edhrec.com/commanders/tymna-the-weaver">Tymna the Weaver</a>
+                        <a href="https://edhrec.com/commanders/edgar-markov">Edgar Markov</a>
+                    </div>
+                    <!--Cartes populaires-->
+                    <div id="pop-links-right-container">
+                        <h3>Cartes : </h3>
+                        <a href="https://edhrec.com/cards/call-the-spirit-dragons">Call the Spirit Dragons</a>
+                        <a href="https://edhrec.com/cards/temur-battlecrier">Temur Battlecrier</a>
+                        <a href="https://edhrec.com/cards/mardu-siegebreaker">Mardu Siegebreaker</a>
+                        <a href="https://edhrec.com/cards/all-out-assault">All-Out Assault</a>
+                        <a href="https://edhrec.com/cards/mistrise-village">Mistrise Village</a>
                     </div>
                 </div>
             </div>
 
+            <!--
+                Section articles
+                - 3 articles les plus récents
+            -->
+            <div id="articles-list">
+                <h2>Articles récents :</h2>
+                <!--Article card 1-->
+                <div class="article-card">
+                    <!--Image de présentation-->
+                    <img class="article-main-img" id="article-img-01" src="./assets/imgs/commander_fest.png">
+
+                    <!--Espace de texte-->
+                    <div class="article-inner-card">
+                        <!--Titre-->
+                        <h2>Évènement CommanderFest</h2>
+                        <!--Description-->
+                        <p>Un évènement à ne pas manquer !</p>
+                        <!--Profile img-->
+                        <div class="article-profile-container">
+                            <img src="./assets/imgs/profile_01.png">
+                        </div>
+                    </div>
+                </div>
+                <!--Article card 2-->
+                <div class="article-card">
+                    <!--Image de présentation-->
+                    <img class="article-main-img" id="article-img-02" src="./assets/imgs/best_ff.png">
+
+                    <!--Espace de texte-->
+                    <div class="article-inner-card">
+                        <!--Titre-->
+                        <h2>Meilleure cartes de Final Fantasy.</h2>
+                        <!--Description-->
+                        <p>Les meilleurs cartes de l'extension Final Fantasy</p>
+                        <!--Profile img-->
+                        <div class="article-profile-container">
+                            <img src="./assets/imgs/profile_01.png">
+                        </div>
+                    </div>
+                </div>
+                <!--Article card 3-->
+                <div class="article-card">
+                    <!--Image de présentation-->
+                    <img class="article-main-img" id="article-img-03" src="./assets/imgs/deck_budget_zombie.png">
+
+                    <!--Espace de texte-->
+                    <div class="article-inner-card">
+                        <!--Titre-->
+                        <h2>Deck budget zombie !</h2>
+                        <!--Description-->
+                        <p>Un deck pour les vifs d'esprits.</p>
+                        <!--Profile img-->
+                        <div class="article-profile-container">
+                            <img src="./assets/imgs/profile_02.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -162,8 +303,7 @@ TO DO :
             <img src="./assets/imgs/logo.png" class="logo">
             <h2 id="signature" class="desktop">Olivier Laliberté et Cédric Sirois-Tanguay</h2>
         </div>
-        
-        
+
         <div id="boutons-reseaux-sociaux">
             <a href="#">
                 <button id="facebook">
@@ -177,12 +317,30 @@ TO DO :
             </a>
             <a href="#">
                 <button id="youtube">
-                    <img src="./assets/youtube.svg">
+                    <img src="./assets/svgs/youtube.svg">
                 </button>
             </a>
         </div>
     </footer>
-</body>
 
+    <!--SECTION SCRIPT-->
+    <!--
+        Dans cette section : 
+        - Un peu de JS pour faire fonctionner le bouton du burger menu
+    -->
+    <script>
+        let isOpen = false;
+        function openBurgerMenu() {
+            if (isOpen) {
+                document.getElementById('dropdown-burger-menu').style.transform = 'translateY(-450px)';
+                isOpen = false;
+            }
+            else {
+                document.getElementById('dropdown-burger-menu').style.transform = 'translateY(0px)';
+                isOpen = true;
+            }
+        }
+    </script>
+</body>
 
 </html>

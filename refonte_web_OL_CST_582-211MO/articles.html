@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,14 @@
 
     <!--Imports-->
     <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/styles_OL.css">
+    <link rel="stylesheet" href="./css/styles_CST.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=League+Gothic&display=swap" rel="stylesheet">
 
-    <title>EDHREC - accueil</title>
+    <title>EDHREC - articles</title>
 </head>
+
 <body>
     <!--SECTION HEADER-->
     <!--
@@ -34,27 +36,28 @@
         <div class="left-container">
             <!--Logo-->
             <a href="./index.html">
-                <img src="./assets/logo.png" class="logo">
+                <img src="./assets/imgs/logo.png" class="logo">
             </a>
+
             <span>EDHREC</span>
-            
+
             <div id="section-boutons" class="desktop">
                 <!--Vers la page Articles-->
                 <a href="./articles.html">
                     <button id="articles-button">
-                        <img src="./assets/articles.svg">
+                        <img src="./assets/svgs/articles.svg">
                     </button>
                 </a>
                 <!--Vers la page commander-->
                 <a href="./commander.html">
                     <button id="commander-button">
-                        <img src="./assets/commander.svg">
+                        <img src="./assets/svgs/commander.svg">
                     </button>
                 </a>
-                <!--Vers rien, vu qu'on ne fait pas la page cartes-->
-                <a href="#">
+                <!--Vers la page de cartes de EDHREC-->
+                <a href="https://edhrec.com/top">
                     <button id="cards-button">
-                        <img src="./assets/cards.svg">
+                        <img src="./assets/svgs/cards.svg">
                     </button>
                 </a>
             </div>
@@ -63,43 +66,174 @@
         <div id="section-recherche-profil" class="desktop">
             <!--Barre de recherche-->
             <div id="barre-recherche">
-                
+                <img src="./assets/svgs/search-bar.svg">
+                <input type="text" placeholder="Rechercher...">
             </div>
             <!--Vers la page Connetion profil-->
-            <a href="./connection.html" >
+            <a href="./connection.html">
                 <button id="profil-button">
-                    <img src="./assets/profile.svg">
+                    <img src="./assets/svgs/profile.svg">
                 </button>
             </a>
         </div>
 
         <!--Burger menu (seulement visible en mobile)-->
         <div id="section-burger-menu" class="mobile">
-            <button id="burger-menu">
-                <img src="./assets/burger-menu.svg">
+            <button id="burger-menu" onclick="openBurgerMenu()">
+                <img src="./assets/svgs/burger-menu.svg">
             </button>
         </div>
     </header>
 
+    <!--SECTION DROPDOWN MENU-->
+    <!--
+        Dans cette section :
+        - Liste de boutons
+        - Barre de recherche
+    -->
+    <div id="dropdown-burger-menu">
+        <a href="./commander.html">
+            <button>
+                <img src="./assets/svgs/commander.svg">
+
+                Commanders
+            </button>
+        </a>
+        <a href="#">
+            <button>
+                <img src="./assets/svgs/cards.svg">
+
+                Cartes
+            </button>
+        </a>
+        <a href="./connection.html">
+            <button>
+                <img src="./assets/svgs/profile.svg">
+
+                Connection
+            </button>
+        </a>
+        <div id="dropdown-barre-recherche">
+            <img src="./assets/svgs/search-bar.svg">
+            <input type="text" placeholder="Rechercher...">
+        </div>
+    </div>
+
     <!--SECTION MAIN-->
     <!--
         Dans le main :
-        (Mobile)
-        - Section commander du jour
-        - Liste cartes populaires
-        - Liste articles récents
-        (Desktop)
-        - Message bienvenue
-        - Section commander du jour
-        - Liste cartes populaires
-        - Liste articles récents
+        - Liste articles
     -->
     <main>
         <div id="top-container">
             <!--Section welcome message-->
             <div id="welcome-message">
-                <h3>Page articles</h3>
-                <p>Lorem ipsum color di amet.</p>
+                <h1>Articles</h1>
+                <div id="article-container">
+                    <!--Article card 1-->
+                    <div class="article-card">
+                        <!--Image de présentation-->
+                        <img class="article-main-img" src="./assets/imgs/commander_fest.png">
+
+                        <!--Espace de texte-->
+                        <div class="article-inner-card">
+                            <!--Titre-->
+                            <h2>Évènement CommanderFest</h2>
+                            <!--Description-->
+                            <p>Un évènement à ne pas manquer !</p>
+                            <!--Profile img-->
+                            <div class="article-profile-container">
+                                <img src="./assets/imgs/profile_01.png">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Article card 2-->
+                    <div class="article-card">
+                        <!--Image de présentation-->
+                        <img class="article-main-img" src="./assets/imgs/best_ff.png">
+
+                        <!--Espace de texte-->
+                        <div class="article-inner-card">
+                            <!--Titre-->
+                            <h2>Meilleure cartes de Final Fantasy.</h2>
+                            <!--Description-->
+                            <p>Les meilleurs cartes de l'extension Final Fantasy</p>
+                            <!--Profile img-->
+                            <div class="article-profile-container">
+                                <img src="./assets/imgs/profile_01.png">
+                            </div>
+                        </div>
+                    </div>
+                    <!--Article card 3-->
+                    <div class="article-card">
+                        <!--Image de présentation-->
+                        <img class="article-main-img" src="./assets/imgs/deck_budget_zombie.png">
+
+                        <!--Espace de texte-->
+                        <div class="article-inner-card">
+                            <!--Titre-->
+                            <h2>Deck budget zombie !</h2>
+                            <!--Description-->
+                            <p>Un deck pour les vifs d'esprits.</p>
+                            <!--Profile img-->
+                            <div class="article-profile-container">
+                                <img src="./assets/imgs/profile_02.png">
+                            </div>
+                        </div>
+                    </div>
+                    <!--Article card 4-->
+                    <div class="article-card">
+                        <!--Image de présentation-->
+                        <img class="article-main-img" src="./assets/imgs/nouveau_deck.png">
+
+                        <!--Espace de texte-->
+                        <div class="article-inner-card">
+                            <!--Titre-->
+                            <h2>Nouveau deck</h2>
+                            <!--Description-->
+                            <p>Un deck qui vient bouleverser la meta !</p>
+                            <!--Profile img-->
+                            <div class="article-profile-container">
+                                <img src="./assets/imgs/profile_01.png">
+                            </div>
+                        </div>
+                    </div>
+                    <!--Article card 5-->
+                    <div class="article-card">
+                        <!--Image de présentation-->
+                        <img class="article-main-img" src="./assets/imgs/top_10_best_deck_tarkir.png">
+
+                        <!--Espace de texte-->
+                        <div class="article-inner-card">
+                            <!--Titre-->
+                            <h2>Top 10 meilleurs decks de tarkir</h2>
+                            <!--Description-->
+                            <p>Les 10 meilleurs cartes de l'extension Tarkir</p>
+                            <!--Profile img-->
+                            <div class="article-profile-container">
+                                <img src="./assets/imgs/profile_02.png">
+                            </div>
+                        </div>
+                    </div>
+                    <!--Article card 6-->
+                    <div class="article-card">
+                        <!--Image de présentation-->
+                        <img class="article-main-img" src="./assets/imgs/vivi_ornitier_commander.png">
+
+                        <!--Espace de texte-->
+                        <div class="article-inner-card">
+                            <!--Titre-->
+                            <h2>Deck de Vivi ornitier</h2>
+                            <!--Description-->
+                            <p>Un deck qui a conquit le coeur de la communauté.</p>
+                            <!--Profile img-->
+                            <div class="article-profile-container">
+                                <img src="./assets/imgs/profile_02.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
@@ -118,29 +252,48 @@
     -->
     <footer>
         <div class="left-container">
-            <img src="./assets/logo.png" class="logo">
+            <img src="./assets/imgs/logo.png" class="logo">
             <h2 id="signature" class="desktop">Olivier Laliberté et Cédric Sirois-Tanguay</h2>
         </div>
-        
-        
+
+
         <div id="boutons-reseaux-sociaux">
             <a href="#">
                 <button id="facebook">
-                    <img src="./assets/facebook.svg">
+                    <img src="./assets/svgs/facebook.svg">
                 </button>
             </a>
             <a href="#">
                 <button id="instagram">
-                    <img src="./assets/instagram.svg">
+                    <img src="./assets/svgs/instagram.svg">
                 </button>
             </a>
             <a href="#">
                 <button id="youtube">
-                    <img src="./assets/youtube.svg">
+                    <img src="./assets/svgs/youtube.svg">
                 </button>
             </a>
         </div>
     </footer>
+
+    <!--SECTION SCRIPT-->
+    <!--
+        Dans cette section : 
+        - Un peu de JS pour faire fonctionner le bouton du burger menu
+    -->
+    <script>
+        let isOpen = false;
+        function openBurgerMenu() {
+            if (isOpen) {
+                document.getElementById('dropdown-burger-menu').style.transform = 'translateY(-450px)';
+                isOpen = false;
+            }
+            else {
+                document.getElementById('dropdown-burger-menu').style.transform = 'translateY(0px)';
+                isOpen = true;
+            }
+        }
+    </script>
 </body>
 
 

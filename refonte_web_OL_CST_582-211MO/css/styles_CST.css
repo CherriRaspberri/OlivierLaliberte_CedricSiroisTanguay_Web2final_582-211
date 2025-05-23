@@ -1,39 +1,168 @@
-/*----------
-# SECTION : imports 
-    - Initialisation des variables de couleur
-    - Importation des typographies 
-----------*/
-:root {
-    /*Couleurs principales : */
-    --main-color: #92A661;
-    --main-color-shadows: #3E6329;
-    --main-color-accents: #AF7B2F;
-    --main-color-highlights: #EAE1CE;
-}
-* {
-    /*Typos : */
-    font-family: "League Gothic", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
+/*#region Containers*/
+#welcome-message {
+    display: flex;
+    flex-direction: column;
 }
 
-/*----------
-# SECTION : Styles generaux
-    - 
-----------*/
+#welcome-message h1 {
+    align-self: center;
+}
 
-/*----------
-# SECTION : Header
-    -
-----------*/
+/*#endregion*/
 
-/*----------
-# SECTION : Containers
-    -
-----------*/
+/*#region Les artciles (positionner l'image)*/
 
-/*----------
-# SECTION : Footer
-    -
-----------*/
+
+/*Pour aligner les cartes dans le milieu de la page*/
+#article-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*Pour placer l'image dans le deuxième articles */
+.article-card:nth-child(2) .article-main-img {
+    max-width: 600px;
+    transform: translateX(-40px) translateY(60px);
+}
+
+/*Pour placer l'image dans le troisième articles*/
+.article-card:nth-child(3) .article-main-img {
+    max-width: 600px;
+    transform: translateX(-40px) translateY(120px);
+}
+
+/*Pour placer l'image dans le quatrième articles*/
+.article-card:nth-child(4) .article-main-img {
+    max-width: 500px;
+
+    transform: translateY(85px);
+}
+
+/*Pour placer l'image dans le cinquième articles*/
+.article-card:nth-child(5) .article-main-img {
+    max-width: 600px;
+    transform: translateX(-40px) translateY(90px);
+}
+
+/*Pour placer l'image dans le sixième articles*/
+.article-card:nth-child(6) .article-main-img {
+    max-width: 600px;
+    transform: translateX(-30px) translateY(15px);
+}
+/*#endregion*/
+
+/*#region Page connection */
+
+/*Container pour les 2 container connection et inscris toi*/
+#connection-incris-toi-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+/*Container pour la connection*/
+#connection-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    padding: 100px;
+    margin: 10px 0;
+    
+    border-radius: 20px 0 0 20px;
+
+    background-color: var(--main-color);
+
+    transform: translateX(10px)
+}
+
+/*Container pour les nouveux utilisateur*/
+#incris-toi-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px;
+    margin: 10px 0;
+    border-radius: 0 20px 20px 0 ;
+    background-color: var(--main-color);
+    transform: translateX(-10px)
+}
+
+/*Pour input Nom d'utilisateur*/
+#utilisateur-text {
+    min-width: 280px;
+    height: 30px;
+    margin: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--main-color-highlights);
+    
+}
+
+/*Pour input mot de passe*/
+#mot-de-passe-text {
+    min-width: 280px;
+    height: 30px;
+    margin: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--main-color-highlights);
+}
+
+/*Pour le boutton de connection*/
+#button-connection {
+    min-width: 280px;
+    margin: 5px;
+    background-color: var(--main-color-accents);
+}
+/*Pour l'animation du boutton*/
+#button-connection::after {
+    background: var(--main-color-shadows);
+    width: 100%;
+}
+/*Pour l'animation du boutton*/
+#button-connection:hover {
+    background-color: var(--main-color-highlights);
+}
+/*Pour input nouveau utilisateur*/
+#nouveau-utilisateur-text {
+    min-width: 280px;
+    height: 30px;
+    margin: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--main-color-highlights);
+}
+/*Pour input du Email*/
+#nouveau-email {
+    min-width: 280px;
+    height: 30px;
+    margin: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--main-color-highlights);
+}
+/*Pour input nouveau mot de passe*/
+#nouveau-mot-de-passe-text {
+    min-width: 280px;
+    height: 30px;
+    margin: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--main-color-highlights);
+}
+
+/*#endregion*/
+
+/*#region medias*/
+@media screen and (min-width: 600px) {
+    /*Pour placer les article en grille dans la page*/
+    #article-container {
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+}
+/*#endregion*/

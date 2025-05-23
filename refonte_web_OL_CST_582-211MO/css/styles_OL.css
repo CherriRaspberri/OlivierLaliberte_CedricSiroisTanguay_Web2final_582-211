@@ -1,117 +1,495 @@
 /*----------
-# SECTION : imports 
-    - Initialisation des variables de couleur
-    - Importation des typographies 
-----------*/
-:root {
-    /*Couleurs principales : */
-    --main-color: #92A661;
-    --main-color-shadows: #3E6329;
-    --main-color-accents: #AF7B2F;
-    --main-color-highlights: #EAE1CE;
-}
-* {
-    /*Typos : */
-    font-family: "League Gothic", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-}
-
-/*----------
 # SECTION : Styles generaux
-    - 
+    - Main
+    - Commander
 ----------*/
 
-/*----------
-# SECTION : Header
-    -
+/*#region Page Main*/
+/*----------  
+    - Containers 
+    - Top and bottom section
 ----------*/
 
-/*#region Containers*/
-/*----------
-    - Container pour les sections top et bottom    
-    - Articles
-----------*/
-
-.top-container {
-
-}
-
-#bottom-container {
-    width: 1000px;
-    height: 1000px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.article-card {
-    width: 30em;
-    height: 15em;
-
-    background-color: var(--main-color-shadows);
-
-    border-radius: 20px;
-    
-    overflow: hidden;
-
+/*Top section*/
+/*
+Top container : Aligne ses enfants en colonne
+*/
+#top-container {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-
 }
 
-.article-inner-card {
-    background-color: var(--main-color);
-
-    transform: translateY(50px);
-
-    position: relative;
-
-    transition: 0.5s ease-in-out;
-}
-.article-card:hover {
-    cursor: pointer;
-}
-.article-card:hover .article-inner-card {
-    transform: translateY(0px);
+/*#region message bienvenue*/
+/*Aligne le texte*/
+#welcome-message {
+    text-align: justify;
 }
 
-.article-inner-card h2 {
-    margin-left: 20px;
-    transform: translateY(-5px);
-}
-
-.article-inner-card p {
-    margin-left: 20px;
-}
-
-.article-profile-container {
-    position: absolute;
-    
-    width: 70px;
-    height: 70px;
-
-    background-color: var(--main-color-highlights);
-
-    border: 4px solid var(--main-color-highlights);
-    border-radius: 50px;
-
-    top: 0;
-    right: 20px;
-
-    overflow: hidden;
-
-    transform: translateY(-30px);
-
-    display: flex;
+/*Change de couleur*/
+#welcome-message h2 {
+    color: var(--main-color-shadows);
 }
 
 /*#endregion*/
 
+/*#region daily commander*/
+
+/*Change de couleur*/
+#daily-commander h2 {
+    color: var(--main-color-shadows);
+}
+
+/*Container pour les elements de daily commander*/
+#daily-inner-container {
+    display: flex;
+    justify-content: center;
+}
+
+/*Ajuste la taille de l'image du commander*/
+#daily-inner-container img {
+    width: 13em;
+}
+
+/*Container pour les liens externes*/
+#daily-liens-container {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-evenly;
+}
+
+/*Ajuste la taille des images des liens externes*/
+.external-link img {
+    max-width: 40px;
+}
+
+/*Ajuste la couleur de background du logo moxfield*/
+#moxfield {
+    background-color: #A07BFF !important;
+}
+/*Ajuste la couleur de background du logo archidekt*/
+#archidekt {
+    background-color: #FF7357;
+}
+/*Ajuste la couleur de background du logo scyfall*/
+#scryfall {
+    background-color: #60516F;
+}
+
+/*Pour l'animation quand on appuye sur les bouttons*/
+#moxfield::after,
+#archidekt::after,
+#scryfall::after,
+#commander-spellbook::after,
+#cardsphere::after {
+    background-color: var(--main-color-highlights-white);
+}
+
+/*#endregion*/
+
+/*Bottom section*/
+/*
+Bottom container : aligne ses enfants
+*/
+#bottom-container h2 {
+    color: var(--main-color-shadows);
+}
+
+/*#region liens populaires*/
+/*Main container pour les liens populaires*/
+#popular-links-list {
+    width: 100%;
+
+    padding-top: 5px;
+
+    background-color: var(--main-color);
+
+    border-radius: 20px;
+}
+
+/*Titre : resize et couleurs*/
+#popular-links-list h1 {
+    margin-left: 10px;
+
+    color: var(--main-color-shadows);
+}
+
+/*Container : aligne les 2 inner containers*/
+#pop-links-inner-container {
+    display: flex;
+
+    transform: translateY(-20px);
+}
+
+/*Container gauche*/
+#pop-links-left-container {
+    color: var(--main-color-shadows);
+
+    margin-left: 10px;
+
+    flex-grow: 1;
+}
+
+/*Liens : change la couleur et les espace*/
+#pop-links-left-container a {
+    color: var(--main-color-highlights);
+    margin-bottom: 10px;
+}
+
+/*Container droit*/
+#pop-links-right-container {
+    color: var(--main-color-shadows);
+
+    flex-grow: 1;
+}
+
+/*Liens : change la couleur et les espace*/
+#pop-links-right-container a {
+    color: var(--main-color-highlights);
+
+    margin-bottom: 10px;
+}
+
+/*#endregion*/
+
+/*#region articles*/
+/*
+- Aligne ses enfants au centre
+- Prend toute la place
+*/
+#articles-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*
+Resize les images dans les articles 
+*/
+#article-img-01 {
+    max-width: 500px;
+    transform: translateX(-00px);
+}
+
+#article-img-02 {
+    max-width: 500px;
+    transform:  translateX(-20px);
+}
+
+#article-img-03 {
+    max-width: 500px;
+    transform: translateX(-15px) translateY(90px);
+}
+
+/*#endregion*/
+
+/*#endregion*/
+
+/*#region Page Commander*/
 /*----------
-# SECTION : Footer
-    -
+    - Top section :
+        - containers 
+        - Alignement des images et des boutons
+    - Bottom section
+        - Barre de recherche
+            - Sticky
+        - Cartes 
 ----------*/
+
+/*Pour placer la section "Atraxa" comme il faut*/
+#commander-top-section {
+    margin-bottom: 30px;
+}
+/*Pour faire une animation avec le boutton*/
+#commander-top-section button::after {
+    background-color: var(--main-color-highlights-white);
+}
+/*Pour aligner la section commander*/
+#espace-commander {
+    margin: 20px 0;
+
+    display: flex;
+}
+/*Pour mieu placer l'image d'Atraxa la comamander*/
+#espace-commander img {
+    max-width: 10em;
+}
+/**/
+#commander-categories {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+/*Pour faire une animation avec le boutton*/
+#commander-categories button {
+    width: 95%;
+    margin-bottom: 10px;
+}
+/*Pour faire une animation avec le boutton*/
+#commander-categories button::after {
+    width: 100%;
+}
+/**/
+#commander-categories p {
+    text-align: center;
+}
+/**/
+#commander-themes-liens button {
+    width: 96%;
+
+    margin-bottom: 10px;
+}
+/*Pour faire une animation avec le boutton*/
+#commander-themes-liens button::after {
+    width: 100%;
+}
+/*Pour aligner les trois div commander, carte et deck moyen*/
+#commander-liens-externes-container {
+    display: flex;
+}
+/*Pour ajuster la taille des lien d'autre site*/
+#commander-liens-externes-container button img {
+    max-width: 30px;
+}
+/*Mettre la couleur de background au logo spellbook*/
+#commander-spellbook {
+    background-color: #EC96FF;
+}
+/*Mettre la couleur de background au logo sphere*/
+#cardsphere {
+    background-color: #1B557B;
+}
+/*Pour ajuster la place de la section d'en bas*/
+#commander-bottom-section {
+    background-color: var(--main-color);
+
+    border-radius: 10px;
+    display: flex;
+
+    margin-bottom: 10px;
+}
+/*Container pour la bar de recherche verte à gauche*/
+#commander-bar-recherche {
+    position: sticky;
+    top: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 75px;
+    height: 45em;
+
+    margin-bottom: 15px;
+
+    border-radius: 10px;
+
+    background-color: var(--main-color-shadows);
+
+    z-index: 1;
+}
+/*Container pour les images de cartes*/
+#commander-cards-display {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+/*Pour les bouttons dans la bar de recherche*/
+#commander-bar-recherche button {
+    margin-bottom: 25px;
+
+}
+/*Pour ajuster les icons dans la bar de recherche*/
+#bar-recherche-icons button img{
+    max-width: 25px;
+}
+/*Pour ajuster les images de cartes*/
+.card-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+/*Pour ajuster la distance entre les cartes*/
+.card-section img {
+    border-radius: 10px;
+    max-width: 13em;
+
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+/*Ajoute une marge*/
+#commander-cards-display div {
+    margin-left: 20px;
+}
+/*Resize la police*/
+#commander-cards-display div h3 {
+    font-size: 2em;
+}
+/*Pour ajuster le hr*/
+#commander-cards-display div hr {
+    width: 40%;
+
+    border: 2px solid var(--main-color-highlights);
+    border-radius: 10px;
+}
+/*Pour aligner le "a" dans la bar de recherche*/
+#commander-bar-recherche a {
+    align-self: center;
+}
+/*Pour ajuster la position de la flèche dans la bar de recherche*/
+#commander-fleche {
+    max-width: 40px;
+    height: 40px;
+
+    margin-top: 15px;
+}
+/*#endregion*/
+
+/*#region MEDIAS*/
+/*Desktop*/
+
+@media screen and (min-width: 600px) {
+    /*#region Page accueil*/
+    /*
+    Top container :
+    - Aligne ses enfants en row 
+    */
+    #top-container {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    /*
+    Message de bienvenue : 
+    - Agrandit le texte
+    - Espace le texte du reste de la page
+    */
+    #welcome-message {
+        font-size: 20px;
+
+        max-width: 400px;
+
+        margin-right: 20px;
+    }
+
+    /*
+    Bottom container :
+    - Aligne ses enfants en row 
+    */
+    #bottom-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    /*
+    Liste d'articles
+    - Alloue de l'espace, mais restrient à partir de 500px
+    */
+    #articles-list {
+        width: 100%;
+        max-width: 500px;
+    }
+    /*
+    Liste de liens
+    - Alloue de l'espace, mais restrient à partir de 500px
+    - Arrive avant la liste d'articles
+    */
+    #popular-links-list {
+        order: 1;
+        max-width: 500px;
+        max-height: 300px;
+    }
+    /*#endregion*/
+
+    /*#region Page commander*/
+    /*
+    Container : aligne en colonne
+    */
+    #commander-container {
+        display: flex;
+        flex-direction: column;
+    }
+    /*
+    Container : aligne en row
+    - Cap à 1200px
+    */
+    #commander-top-section {
+        align-self: center;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        max-width: 1200px;
+    }
+    /*
+    Cap l'espace à 500px
+    */
+    #espace-commander {
+        max-width: 500px;
+    }
+    /*
+    Cap l'image à 300px
+    */
+    #espace-commander img {
+        max-width: 300px;
+    }
+    /*
+    - Prend toute la place, jusqu'à 400px
+    - Offre de l'espace
+    */
+    #commander-categories {
+        margin-left: 10px;
+        width: 100%;
+        max-width: 400px;
+    }
+    /*
+    Ordonne les liens en premier
+    - Cap la largeur à 300px
+    - Offre de l'espace
+    */
+    #commander-themes-liens {
+        order: -1;
+
+        max-width: 300px;
+        margin-right: 20px;
+    }
+    /*
+    Affiche les cartes en row à la place de colonne
+    */
+    .card-section {
+        flex-direction: row;
+    }
+
+    /*#endregion*/
+
+}
+
+@media screen and (max-width: 1000px) {
+    /*#region Page accueil*/
+    /*
+    Bottom container : 
+    - Aligne ses enfants en colonne
+    */
+    #bottom-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    /*
+    Liens populaires :
+    - Grandit avec la page
+    */
+    #popular-links-list {
+        max-width: 100%;
+        order:0;
+    }
+    /*#endregion*/
+}
+
+/*#endregion*/

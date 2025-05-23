@@ -1,8 +1,9 @@
+/*#region ROOT*/
 /*----------
-# SECTION : imports 
     - Initialisation des variables de couleur
     - Importation des typographies 
 ----------*/
+/*Couleurs*/
 :root {
     /*Couleurs principales : */
     --main-color: #92A661;
@@ -10,13 +11,14 @@
     --main-color-shadows-deep: #2d421f;
     --main-color-accents: #AF7B2F;
     --main-color-highlights: #EAE1CE;
+    --main-color-highlights-white: #b8b1a0;
 
-
+    /*Couleurs reseaux sociaux*/
     --facebook-hover: #7ac0fd;
     --instagram-hover: #ffaaff;
     --youtube-hover: #ff837d;
 }
-
+/*Police*/
 * {
     /*Typos : */
     font-family: "League Gothic", sans-serif;
@@ -24,13 +26,19 @@
     font-weight: 400;
     font-style: normal;
 }
+/*rend les transitions de scroll "smooth"*/
+html {
+    scroll-behavior: smooth; 
+}
 
+/*Couleur du bg de la page*/
 body {
     background: var(--main-color-highlights);
 }
+/*#endregion*/
 
+/*#region STYLES GENERAUX*/
 /*----------
-# SECTION : Styles generaux
     - Tout ce qui touche à toutes les pages
         - Liens
         - Boutons
@@ -41,19 +49,24 @@ body {
     max-width: 50px;
 }
 
-/*Liens personalisés : aligne le bouton à l'intérieur du lien*/
+/*
+Liens personalisés : aligne le bouton à l'intérieur du lien
+*/
 a {
     text-decoration: none;
     display: flex;
     align-items: center;
 }
 
-/*span utilisé pour le titre dans le header; Centre avec le logo*/
+/*
+span utilisé pour le titre dans le header; Centre avec le logo
+*/
 span {
     transform: translateY(-2px);
 }
 
-/*Bouton stylisé avec animation :
+/*
+Bouton stylisé avec animation :
     - Fond vert (main color)
     - Ombre décalée
     - Animation du mouvement d'ombre
@@ -83,7 +96,9 @@ button {
     align-items: center;
     justify-content: center;
 }
-/*Ombre du bouton créé avec ::after*/
+/*
+Ombre du bouton créé avec ::after
+*/
 button::after {
     content: "";
 
@@ -105,38 +120,40 @@ button::after {
 
     z-index: -1;
 }
-/*Change de curseur*/
+/*
+Change de curseur et de couleur on hover
+*/
 button:hover {
     cursor: pointer;
     background: var(--main-color-highlights);
 }
-/*Animation*/
+/*
+Animation de transition
+*/
 button:hover::after {
     transform: translateX(0) translateY(2px);
 }
-/*L'images placée dans le bouton prendra 100% de l'espace.*/
+/*
+L'image placée dans le bouton prendra 100% de l'espace
+*/
 button img {
     width: 100%;
 }
-
-.left-container {
-    display: flex;
-    align-items: center;
-}
-
-/*Centre les éléments mentionnés*/
-#section-recherche-profil,
-#section-burger-menu,
-#boutons-reseaux-sociaux {
-    transform: translateX(-15px);
-}
+/*#endregion*/
 
 /*#region HEADER*/
 /*----------
     - Différents containers :
         - Boutons
-        - Barre de recherche
+        - Barre de recherche + profil
+    - 
 ----------*/
+
+/*
+Styles generaux pour le header : 
+    - Prend toute la largeur de la page
+    - Centre ses enfants
+*/
 header {
     width: 100%;
     height: 2.5em;
@@ -148,13 +165,18 @@ header {
     color: white;
     font-size: 32px;
 
+    position: relative;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    z-index: 1;
+    z-index: 5;
 }
-/**/
+
+/*
+Container : centre ses enfants
+*/
 #section-boutons {
     width: 200px;
 
@@ -166,11 +188,33 @@ header {
     transform: translateY(-5px);
 }
 
-/*Resize l'image du bouton profil avec une plus petite taille*/
+/*
+Container : centre ses enfants
+*/
+.left-container {
+    display: flex;
+    align-items: center;
+}
+
+/*
+Centre les éléments mentionnés
+*/
+#section-recherche-profil,
+#section-burger-menu,
+#boutons-reseaux-sociaux {
+    transform: translateX(-15px);
+}
+
+/*
+Resize l'image du bouton profil avec une plus petite taille
+*/
 #profil-button img {
     width: 90%;
 }
 
+/*
+Containers : Alignent et positionne leur enfants
+*/
 #section-recherche-profil {
     display: flex;
     align-items: center;
@@ -179,8 +223,14 @@ header {
     transform: translateY(-5px);
 }
 
+/*
+Barre de recherche : 
+    - Taille responsive
+    - Couleur comme le bg de la page
+    - Position dans le container
+*/
 #barre-recherche {
-    width: 20rem;
+    width: 100%;
     height: 2.7rem;
 
     background: var(--main-color-highlights);
@@ -188,39 +238,192 @@ header {
 
     position: relative;
     transform: translateY(-5px);
+
+    display: flex;
 }
 
-#recherche-input {
+/*Éléments de barre recherche : 
+Positionnés correctement dans la barre*/
+#barre-recherche img {
+    max-width: 40px;
+    margin-right: 20px;
+}
+#barre-recherche input {
+    width: 100%;
+
+    font-size: 20px;
+
+    border-radius: 10px;
+
+    border: none;
+
+    background-color: var(--main-color-highlights);
+}
+/*
+Taille du svg dans la barre de recherche
+*/
+
+#dropdown-burger-menu {
+    position: absolute;
+
+    width: 100%;
+
+    padding: 10px 0;
+
+    background-color: var(--main-color-highlights);
+
+    transform: translateY(-450px);
+
+    transition: 0.3s ease-in-out;
+
+    z-index: 3;
+}
+
+#dropdown-burger-menu a {
+    margin: 10px 0;
+}
+#dropdown-burger-menu button {
+    width: 92%;
+
+    font-size: 20px;
+
+    display: flex;
+    justify-content: flex-start;
+}
+#dropdown-burger-menu button::after {
+    width: 100%;
+}
+
+#dropdown-burger-menu button img {
+    max-width: 30px;
+    margin-right: 20px;
+}
+
+#dropdown-barre-recherche {
+    width: 92%;
+    height: 2.5em;
+
+    margin-top: 30px;
+
+    background-color: white;
     
+    border-radius: 10px;
+
+    transform: translateX(8px);
+
+    display: flex;
 }
 
-#recherche-submit {
-
+#dropdown-barre-recherche img {
+    max-width: 30px;
+    margin-right: 10px;
 }
 
+#dropdown-barre-recherche input {
+    width: 100%;
 
+    font-size: 20px;
 
-#loupe {
-    max-width: 4vh;
+    border-radius: 10px;
+
+    border: none;
 }
 /*#endregion*/
 
+/*#region MAIN*/
 /*----------
-# SECTION : Main
-    -
+    - Articles : 
+        - Dans la page index + articles
 ----------*/
 
+.article-card {
+    position: relative;
+
+    width: 100%;
+    max-width: 30em;
+    
+    height: 15em;
+
+    margin: 10px 0;
+
+    background-color: var(--main-color-shadows);
+
+    border-radius: 20px;
+    
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+}
+
+.article-inner-card {
+    background-color: var(--main-color);
+
+    transform: translateY(50px);
+
+    position: relative;
+
+    transition: 0.5s ease-in-out;
+}
+.article-card:hover {
+    cursor: pointer;
+}
+.article-card:hover .article-inner-card {
+    transform: translateY(0px);
+}
+
+.article-main-img {
+    position: absolute;
+}
+
+.article-inner-card h2 {
+    margin-left: 20px;
+    transform: translateY(-5px);
+}
+
+.article-inner-card p {
+    margin-left: 20px;
+}
+
+.article-profile-container {
+    position: absolute;
+    
+    width: 70px;
+    height: 70px;
+
+    background-color: var(--main-color-highlights);
+
+    border: 4px solid var(--main-color-highlights);
+    border-radius: 50px;
+
+    top: 0;
+    right: 20px;
+
+    overflow: hidden;
+
+    transform: translateY(-30px);
+
+    display: flex;
+}
+
+#article-container{
+    display: flex;
+    flex-direction: column;
+}
 
 
 
+/*#endregion*/
 
+/*#region FOOTER*/
 /*----------
-# SECTION : Footer
     -
 ----------*/
 footer {
     width: 100%;
-    height: 8%;
+    height: 4em;
     background-color: var(--main-color-shadows);
     border-radius: 10px;
     padding-top: 5px;
@@ -236,6 +439,10 @@ footer {
 
 #boutons-reseaux-sociaux {
     display: flex;
+
+    margin-right: 10px;
+
+    transform: translateY(-5px);
 }
 
 #facebook, #instagram, #youtube {
@@ -250,10 +457,11 @@ footer {
 #youtube:hover {
     background: var(--youtube-hover);
 }
+/*#endregion*/
 
+/*#region MEDIAS*/
 /*----------
-#SECTION : MEDIAS
-    -
+    - Dépendemment de la largeur de la page, fait apparaitre des éléments ou les fait disparaitre.
 ----------*/
 
 /*Mobile*/
@@ -269,3 +477,20 @@ footer {
         display: none !important;
     }
 }
+/*#endregion*/
+
+/*#region ANIMATION*/
+#daily-commander-img {
+    margin-right: 20px;
+    animation: shake 2s infinite;
+}
+
+@keyframes shake {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  80% { transform: translate(0, 0) rotate(0deg); }
+  85% { transform: translate(5px, 5px) rotate(5deg); }
+  90% { transform: translate(0, 0) rotate(0deg); }
+  95% { transform: translate(-5px, 5px) rotate(-5deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+/*#endregion*/

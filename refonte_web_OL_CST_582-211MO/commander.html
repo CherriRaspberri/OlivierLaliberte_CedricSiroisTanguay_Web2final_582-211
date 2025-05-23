@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,8 +13,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=League+Gothic&display=swap" rel="stylesheet">
 
-    <title>EDHREC - accueil</title>
+    <title>EDHREC - commander</title>
 </head>
+
 <body>
     <!--SECTION HEADER-->
     <!--
@@ -34,27 +36,27 @@
         <div class="left-container">
             <!--Logo-->
             <a href="./index.html">
-                <img src="./assets/logo.png" class="logo">
+                <img src="./assets/imgs/logo.png" class="logo">
             </a>
             <span>EDHREC</span>
-            
+
             <div id="section-boutons" class="desktop">
                 <!--Vers la page Articles-->
                 <a href="./articles.html">
                     <button id="articles-button">
-                        <img src="./assets/articles.svg">
+                        <img src="./assets/svgs/articles.svg">
                     </button>
                 </a>
                 <!--Vers la page commander-->
                 <a href="./commander.html">
                     <button id="commander-button">
-                        <img src="./assets/commander.svg">
+                        <img src="./assets/svgs/commander.svg">
                     </button>
                 </a>
-                <!--Vers rien, vu qu'on ne fait pas la page cartes-->
-                <a href="#">
+                <!--Vers la page de cartes de EDHREC-->
+                <a href="https://edhrec.com/top">
                     <button id="cards-button">
-                        <img src="./assets/cards.svg">
+                        <img src="./assets/svgs/cards.svg">
                     </button>
                 </a>
             </div>
@@ -63,50 +65,311 @@
         <div id="section-recherche-profil" class="desktop">
             <!--Barre de recherche-->
             <div id="barre-recherche">
-                
+                <img src="./assets/svgs/search-bar.svg">
+                <input type="text" placeholder="Rechercher...">
             </div>
             <!--Vers la page Connetion profil-->
-            <a href="./connection.html" >
+            <a href="./connection.html">
                 <button id="profil-button">
-                    <img src="./assets/profile.svg">
+                    <img src="./assets/svgs/profile.svg">
                 </button>
             </a>
         </div>
 
         <!--Burger menu (seulement visible en mobile)-->
         <div id="section-burger-menu" class="mobile">
-            <button id="burger-menu">
-                <img src="./assets/burger-menu.svg">
+            <button id="burger-menu" onclick="openBurgerMenu()">
+                <img src="./assets/svgs/burger-menu.svg">
             </button>
         </div>
     </header>
 
+    <!--SECTION DROPDOWN MENU-->
+    <!--
+        Dans cette section :
+        - Liste de boutons
+        - Barre de recherche
+    -->
+    <div id="dropdown-burger-menu">
+        <a href="./articles.html">
+            <button>
+                <img src="./assets/svgs/articles.svg">
+
+                Articles
+            </button>
+        </a>
+        <a href="https://edhrec.com/top">
+            <button>
+                <img src="./assets/svgs/cards.svg">
+
+                Cartes
+            </button>
+        </a>
+        <a href="./connection.html">
+            <button>
+                <img src="./assets/svgs/profile.svg">
+
+                Connection
+            </button>
+        </a>
+        <div id="dropdown-barre-recherche">
+            <img src="./assets/svgs/search-bar.svg">
+            <input type="text" placeholder="Rechercher...">
+        </div>
+    </div>
+
     <!--SECTION MAIN-->
     <!--
-        Dans le main :
-        (Mobile)
-        - Section commander du jour
-        - Liste cartes populaires
-        - Liste articles récents
-        (Desktop)
-        - Message bienvenue
-        - Section commander du jour
-        - Liste cartes populaires
-        - Liste articles récents
+    Top section
+    - Left + right container
+    - Left container : 
+        - 2 inner containers (themes + liens externes)
+    - Right container :
+        - img + container (categories)
+
+    Bottom section 
+    - Main container
+    - Vertical button bar (research)
+    - Sections with inner containers (cards)
     -->
     <main>
-        <div id="top-container">
-            <!--Section welcome message-->
-            <div id="welcome-message">
-                <h3>Page Commander</h3>
-                <p>Lorem ipsum color di amet.</p>
+        <!--Main container-->
+        <div id="commander-container">
+            <!--Title-->
+            <h1>Atraxa, Praetor's voice</h1>
+
+            <!--Top section-->
+            <div id="commander-top-section">
+                <!--Commander + categories-->
+                <div id="espace-commander">
+                    <!--Commander-->
+                    <img src="./assets/imgs/commander.jpg">
+                    <!--Categories + info text-->
+                    <div id="commander-categories">
+                        <button>
+                            COMMANDER
+                        </button>
+                        <button>
+                            CARTE
+                        </button>
+                        <button>
+                            DECK MOYEN
+                        </button>
+                        <p>36061 decks (0.0629%) <br>
+                            Rang #01 </p>
+                    </div>
+                </div>
+                <!--Themes + liens externes-->
+                <div id="commander-themes-liens">
+                    <!--Themes-->
+                    <h2>Thèmes :</h2>
+                    <button>
+                        INFECT
+                    </button>
+                    <button class="desktop">
+                        PLANESWALKERS
+                    </button>
+                    <button class="desktop">
+                        +1/+1
+                    </button>
+                    <button>
+                        PLUS DE TAGS
+                    </button>
+
+                    <!--Liens externes-->
+                    <div id="commander-liens-externes-container">
+                        <button id="scryfall">
+                            <img src="./assets/svgs/logo_scryfall.svg">
+                        </button>
+                        <button id="moxfield">
+                            <img src="./assets/imgs/logo_moxfield.png">
+                        </button>
+                        <button id="archidekt">
+                            <img src="./assets/imgs/logo_archidekt.png">
+                        </button>
+                        <button id="commander-spellbook">
+                            <img src="./assets/svgs/logo_commander_spellbook.svg">
+                        </button>
+                        <button id="cardsphere">
+                            <img src="./assets/imgs/logo_cardsphere.png">
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!--Bottom section-->
+            <div id="commander-bottom-section">
+                <!--Barre de recherche-->
+                <div id="commander-bar-recherche">
+                    <!--Lien back to top-->
+                    <a href="#">
+                        <img src="./assets/svgs/fleche_top.svg" id="commander-fleche">
+                    </a>
+                    
+                    <!--Liens vers sections spécifiques-->
+                    <div id="bar-recherche-icons">
+                        <!--Meilleures cartes-->
+                        <a href="#commander-cards-meilleures-cartes">
+                            <button id="commander-top-card">
+                            <img src="./assets/svgs/cards_categories/top.svg">
+                        </button>
+                        </a>
+                        <!--Haute synergie-->
+                        <a href="#commander-cards-high-synergy">
+                            <button 
+                        id="commander-haute-synergie">
+                            <img src="./assets/svgs/cards_categories/high_synergy.svg">
+                        </button>
+                        </a>
+                        <!--Creatures-->
+                        <a href="#commander-cards-creatures">
+                            <button id="commander-creatures">
+                            <img src="./assets/svgs/cards_categories/creature.svg">
+                        </button>
+                        </a>
+                        <!--Instants-->
+                        <a href="#commander-cards-instants">
+                            <button id="commander-instants">
+                            <img src="./assets/svgs/cards_categories/instant.svg">
+                        </button>
+                        </a>
+                        <!--Sorceries-->
+                        <a href="#commander-cards-sorceries">
+                            <button id="commander-sorceries">
+                            <img src="
+                            ./assets/svgs/cards_categories/sorcery.svg">
+                        </button>
+                        </a>
+                        <!--Artifacts-->
+                        <a href="#commander-cards-artifacts">
+                            <button id="commander-artefacts">
+                            <img src="./assets/svgs/cards_categories/artifact.svg">
+                        </button>
+                        </a>
+                        <!--Enchantments-->
+                        <a href="#commander-cards-enchantments">
+                            <button id="commander-enchantements">
+                            <img src="./assets/svgs/cards_categories/enchantment.svg">
+                        </button>
+                        </a>
+                        <!--Planeswalkers-->
+                        <a href="#commander-card-planeswalkers">
+                            <button id="commander-planeswalkers">
+                            <img src="./assets/svgs/cards_categories/planeswalker.svg">
+                        </button>
+                        </a>
+                        <!--Lands-->
+                        <a href="#commander-cards-lands">
+                            <button id="commander-lands">
+                            <img src="./assets/svgs/cards_categories/land.svg">
+                        </button>
+                        </a>
+                    </div>
+                </div>
+                <!--
+                Card display :
+                - Toutes les cartes qui peuvent aller dans le deck sont montrées ici
+                - Pour ne pas "clutter" le dossier images, on n<utilise que 2 images max par sous-section
+                -->
+                <div id="commander-cards-display">
+                    <!--Meilleures cartes-->
+                    <div id="commander-cards-meilleures-cartes">
+                        <h3>Meilleures cartes</h3>
+                        <hr>
+                        <div class="card-section">
+                            <img src="./assets/imgs/img_cartes/best_01.jpg">
+                            <img src="./assets/imgs/img_cartes/best_02.jpg">
+                            <img src="./assets/imgs/img_cartes/best_02.jpg">
+                        </div>
+                        <hr>
+                    </div>
+                    <!--High synergy-->
+                    <div id="commander-cards-high-synergy">
+                        <h3>Haute synergie</h3>
+                        <hr>
+                        <div class="card-section">
+                            <img src="./assets/imgs/img_cartes/high_synergy_01.jpg">
+                            <img src="./assets/imgs/img_cartes/high_synergy_02.jpg">
+                        </div>
+                        <hr>
+                    </div>
+                    <!--Creatures-->
+                    <div id="commander-cards-creatures">
+                        <h3>Créatures</h3>
+                        <hr>
+                        <div class="card-section">
+                            <img src="./assets/imgs/img_cartes/creature_01.jpg">
+                            <img src="./assets/imgs/img_cartes/creature_02.jpg">
+                        </div>
+                        <hr>
+                    </div>
+                    <!--Instants-->
+                    <div id="commander-cards-instants" >
+                        <h3>Instants</h3>
+                        <hr>
+                        <div class="card-section">
+                            <img src="./assets/imgs/img_cartes/instant_01.jpg">
+                            <img src="./assets/imgs/img_cartes/instant_02.jpg">
+                        </div>
+                        <hr>
+                    </div>
+                    <!--Sorceries-->
+                    <div id="commander-cards-sorceries" >
+                        <h3>Sorceries</h3>
+                        <hr>
+                        <div class="card-section">
+                            <img src="./assets/imgs/img_cartes/sorcery_01.jpg">
+                            <img src="./assets/imgs/img_cartes/sorcery_02.jpg">
+                        </div>
+                        <hr>
+                    </div>
+                    <!--Artifacts-->
+                    <div id="commander-cards-artifacts">
+                        <h3>Artifacts</h3>
+                        <hr>
+                        <div class="card-section">
+                            <img src="./assets/imgs/img_cartes/artifact_01.jpg">
+                            <img src="./assets/imgs/img_cartes/artifact_02.jpg">
+                        </div>
+                        <hr>
+                    </div>
+                    <!--Enchantments-->
+                    <div id="commander-cards-enchantments">
+                        <h3>Enchantments</h3>
+                        <hr>
+                        <div class="card-section">
+                            <img src="./assets/imgs/img_cartes/enchantment_01.jpg">
+                        <img src="./assets/imgs/img_cartes/enchantment_02.jpg">
+                        </div>
+                        <hr>
+                    </div>
+                    <!--Planeswalkers-->
+                    <div id="commander-card-planeswalkers">
+                        <h3>Planeswalkers</h3>
+                        <hr>
+                        <div class="card-section">
+                            <img src="./assets/imgs/img_cartes/planeswalker_01.jpg">
+                        </div>
+                        <hr>
+                    </div>
+                    <!--Lands-->
+                    <div id="commander-cards-lands">
+                        <h3>Lands</h3>
+                        <hr>
+                        <div class="card-section">
+                            <img src="./assets/imgs/img_cartes/land_01.jpg">
+                        <img src="./assets/imgs/img_cartes/land_02.jpg">
+                        </div>
+                        <hr>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
 
     <!--SECTION FOOTER-->
     <!-- 
-        Dans le footer:
+        Dans le footer:+-
         (Mobile)
         -logo
         -réseaux sociaux
@@ -118,29 +381,48 @@
     -->
     <footer>
         <div class="left-container">
-            <img src="./assets/logo.png" class="logo">
+            <img src="./assets/imgs/logo.png" class="logo">
             <h2 id="signature" class="desktop">Olivier Laliberté et Cédric Sirois-Tanguay</h2>
         </div>
-        
-        
+
+
         <div id="boutons-reseaux-sociaux">
             <a href="#">
                 <button id="facebook">
-                    <img src="./assets/facebook.svg">
+                    <img src="./assets/svgs/facebook.svg">
                 </button>
             </a>
             <a href="#">
                 <button id="instagram">
-                    <img src="./assets/instagram.svg">
+                    <img src="./assets/svgs/instagram.svg">
                 </button>
             </a>
             <a href="#">
                 <button id="youtube">
-                    <img src="./assets/youtube.svg">
+                    <img src="./assets/svgs/youtube.svg">
                 </button>
             </a>
         </div>
     </footer>
+
+    <!--SECTION SCRIPT-->
+    <!--
+        Dans cette section : 
+        - Un peu de JS pour faire fonctionner le bouton du burger menu
+    -->
+    <script>
+        let isOpen = false;
+        function openBurgerMenu() {
+            if (isOpen) {
+                document.getElementById('dropdown-burger-menu').style.transform = 'translateY(-450px)';
+                isOpen = false;
+            }
+            else {
+                document.getElementById('dropdown-burger-menu').style.transform = 'translateY(0px)';
+                isOpen = true;
+            }
+        }
+    </script>
 </body>
 
 
